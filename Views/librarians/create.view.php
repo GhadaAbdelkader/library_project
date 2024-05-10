@@ -12,22 +12,35 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Create </h4>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                        <input type="text" class="form-control" id="exampleInputName1" name="name"  placeholder="Name" value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
+                        
+                        <?php if (isset($errors['name'])) : ?>
+                          <small class="text-danger"><?= $errors['name'] ?></small>
+                        <?php endif; ?>
+
                       </div>
+
+
                       <div class="form-group">
                         <label for="exampleInputPhone">Phone</label>
-                          <input type="text" class="form-control" id="exampleInputPhone" placeholder="Phone number">
+                          <input type="text" class="form-control" id="exampleInputPhone" name="phone"  placeholder="Phone number" value="<?= $_POST['phone'] ?? '' ?>">
+                          <?php if (isset($errors['phone'])) : ?>
+                          <small class="text-danger"><?= $errors['phone'] ?></small>
+                        <?php endif; ?>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        <label for="exampleInputEmail">Email address</label>
+                        <input type="text" class="form-control" id="exampleInputEmail" name="email"  placeholder="Email" value="<?= $_POST['email'] ?? '' ?>">
+                        <?php if (isset($errors['email'])) : ?>
+                          <small class="text-danger"><?= $errors['email'] ?></small>
+                        <?php endif; ?>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                        <label for="exampleInputPassword">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword" name="password"  placeholder="Password">
                       </div>
                       <div class="form-group">
                         <label>File image</label>

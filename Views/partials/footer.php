@@ -31,5 +31,51 @@
 <!-- Custom js for this page -->
 <script src="../../src/assets/js/dashboard.js"></script>
 <!-- End custom js for this page -->
+
+<script>
+$(document).ready(function() {
+//   // إزالة الكلاس "active" من جميع الروابط
+//   $('a.nav-link').removeClass('active');
+//   $('li.nav-item').removeClass('active');
+//   // إزالة الكلاس "show" من جميع عناصر القائمة المنسدلة
+//   $('.collapse').removeClass('show');
+
+$('.sidebar .nav li.navy').on('click', function() {
+    console.log('50');
+
+    // إزالة الكلاس "active" من جميع الروابط
+    // إضافة الكلاس "active" إلى الرابط الحالي الذي تم النقر عليه
+    $(this).addClass('active');
+    console.log(' 10');
+
+    // إزالة الكلاس "show" من جميع عناصر القائمة المنسدلة
+    // إضافة الكلاس "show" إلى القائمة المنسدلة المتعلقة بالرابط الحالي
+    $(this).closest('.collapse').addClass('show');
+
+    // طباعة رسالة في وحدة التحكم
+    console.log('تم تنفيذ الكود بنجاح!');
+  });
+  // تفعيل الحدث على الروابط
+  $('.sidebar .nav.sub-menu .nav-item .nav-link').on('click', function() {
+    console.log('50');
+
+    // إزالة الكلاس "active" من جميع الروابط
+    // إضافة الكلاس "active" إلى الرابط الحالي الذي تم النقر عليه
+    $(this).addClass('active');
+    console.log(' 10');
+
+    // إزالة الكلاس "show" من جميع عناصر القائمة المنسدلة
+    // إضافة الكلاس "show" إلى القائمة المنسدلة المتعلقة بالرابط الحالي
+    $(this).closest('.collapse').addClass('show');
+
+    // طباعة رسالة في وحدة التحكم
+    console.log('تم تنفيذ الكود بنجاح!');
+  });
+});
+
+
+</script>
 </body>
 </html>
+
+
