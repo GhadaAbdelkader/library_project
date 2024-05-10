@@ -22,7 +22,7 @@
                 <i class="mdi mdi-home menu-icon"></i>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item navy">
             <a class="nav-link" data-bs-toggle="collapse" href="#Librarians" aria-expanded="false" aria-controls="Librarians">
                 <span class="menu-title">Librarians</span>
                 <i class="menu-arrow"></i>
@@ -33,16 +33,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/librarians/create">Create</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/librarians/edit">Edit</a>
-                    </li>
+                  
                     <li class="nav-item">
                         <a class="nav-link" href="/librarians/show">Overview</a>
                     </li>
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item navy">
             <a class="nav-link" data-bs-toggle="collapse" href="#Clients" aria-expanded="false" aria-controls="Clients">
                 <span class="menu-title">Clients</span>
                 <i class="menu-arrow"></i>
@@ -53,16 +51,14 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/clients/create">Create</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/clients/edit">Edit</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="/clients/show">Overview</a>
                     </li>
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item navy">
             <a class="nav-link" data-bs-toggle="collapse" href="#Books" aria-expanded="false" aria-controls="Books">
                 <span class="menu-title">Books</span>
                 <i class="menu-arrow"></i>
@@ -73,9 +69,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/books/create">Create</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/books/edit">Edit</a>
-                    </li>
+                   
                     <li class="nav-item">
                         <a class="nav-link" href="/books/show">Overview</a>
                     </li>
@@ -91,13 +85,11 @@
             <div class="collapse" id="SuggestionsAndRate">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/buttons.html">Create</a>
+                        <a class="nav-link" href="/suggestionsAndRate/create">Create</a>
                     </li>
+               
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/dropdowns.html">Edit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/typography.html">Overview</a>
+                        <a class="nav-link" href="/suggestionsAndRate/show">Overview</a>
                     </li>
                 </ul>
             </div>
@@ -111,18 +103,16 @@
             <div class="collapse" id="Notifications">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/buttons.html">Create</a>
+                        <a class="nav-link" href="/notifications/create">Create</a>
                     </li>
+                   
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/dropdowns.html">Edit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/typography.html">Overview</a>
+                        <a class="nav-link" href="/notifications/show">Overview</a>
                     </li>
                 </ul>
             </div>
         </li>
-        <!-- <li class="nav-item">
+       <!--<li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Basic UI Elements</span>
                 <i class="menu-arrow"></i>
@@ -131,13 +121,13 @@
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                        <a class="nav-link" href="/buttons">Buttons</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a>
+                        <a class="nav-link" href="src/assets/pages/ui-features/dropdowns.html">Dropdowns</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                        <a class="nav-link" href="src/assets/pages/ui-features/typography.html">Typography</a>
                     </li>
                 </ul>
             </div>

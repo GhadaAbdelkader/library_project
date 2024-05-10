@@ -1,5 +1,4 @@
 <?php
-echo"10";
 
 $heading = "Dashbord";
 
