@@ -27,22 +27,60 @@ $errors = [];
     }
 
 
-if (empty($errors)) {
-    $db->query('INSERT INTO librarians (name, email, phone, password) VALUES
-        (:name, :email, :phone, :password)', [
+    if (empty($errors)) {
+            if($_POST['submit'] === 'Tea'){
+                $db->query('INSERT INTO librarians (name, email, phone, password) VALUES
+                (:name, :email, :phone, :password)', [
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'phone' => $_POST['phone'],
+                'password' => $_POST['password'],
+            ]);
+                header('Location:/librarians/create');
+                exit();
+            
+            }else if ($_POST['submit'] === 'coffee'){
+                $db->query("UPDATE librarians SET name = :name, email = :email, phone = :phone WHERE id = {$_GET['id']}", [
+                    'name'  => $_POST['name'],
+                    'email' => $_POST['email'],
+                    'phone' => $_POST['phone'],
+                ]);
+                header('Location:/librarians/show');
+
+                exit();
+
+            }
+}  else {
+    if($_POST['submit'] === 'Tea'){
+        $errorParams = http_build_query(['errors' => $errors]);
+
+    $queryString = http_build_query([
+        'name' => $_POST['name'],
+        'email' => $_POST['email'],
+        'phone' => $_POST['phone'],
+        'password' => $_POST['password']
+    ]);
+    header('Location:/librarians/create?' . $queryString . "&" . $errorParams );
+    exit();
+    
+    }else if ($_POST['submit'] === 'coffee'){
+        // dd($_POST);
+
+        $errorParams = http_build_query(['errors' => $errors]);
+
+        $queryString = http_build_query([
+            'id' => $_GET['id'], // Retrieve the 'id' parameter from the URL
             'name' => $_POST['name'],
             'email' => $_POST['email'],
             'phone' => $_POST['phone'],
-            'password' => $_POST['password'],
-        ]);
 
-    // Redirect to a success page or perform any other actions
-    header('Location:/librarians/create');
-    exit();
-}  else {
-   
-    header('Location:/librarians/create');
-    exit();
+        ]);
+        header('Location:/librarians/edit?' . $queryString . "&" . $errorParams );
+        exit();
+    }
+    
+
+
 };
 
 

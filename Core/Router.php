@@ -45,11 +45,17 @@ class Router {
         foreach ($this->routes as $route) {
 
             if ($route['uri'] === $uri && $route['method'] === strtoupper($method)) {
-
+                // dd($route['uri']);
+                        // dd($route['method']);
+// dd(($method));
                 return require $route['controller'];
+
             }
         }
-        // dd($route['method']);
+        // dd(($method));
+
+        dd($route['method']);
+        // dd($route['uri'] === $uri && $route['method'] === strtoupper($method));
 
         $this->abort();
     }
