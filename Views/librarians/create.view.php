@@ -15,7 +15,7 @@
                     <form class="forms-sample" method="post">
                       <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="name"  placeholder="Name" value="<?= isset($_POST['name']) ? htmlspecialchars($_POST['name']) : '' ?>">
+                        <input type="text" class="form-control" id="exampleInputName1" name="name"  placeholder="Name" value="<?= isset($_GET['name']) ? htmlspecialchars($_GET['name']) : '' ?>">
                         
                         <?php if (isset($errors['name'])) : ?>
                           <small class="text-danger"><?= $errors['name'] ?></small>
@@ -26,21 +26,21 @@
 
                       <div class="form-group">
                         <label for="exampleInputPhone">Phone</label>
-                          <input type="text" class="form-control" id="exampleInputPhone" name="phone"  placeholder="Phone number" value="<?= $_POST['phone'] ?? '' ?>">
+                          <input type="text" class="form-control" id="exampleInputPhone" name="phone"  placeholder="Phone number" value="<?= isset($_GET['phone']) ? htmlspecialchars($_GET['phone']) : '' ?>">
                           <?php if (isset($errors['phone'])) : ?>
                           <small class="text-danger"><?= $errors['phone'] ?></small>
                         <?php endif; ?>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail">Email address</label>
-                        <input type="text" class="form-control" id="exampleInputEmail" name="email"  placeholder="Email" value="<?= $_POST['email'] ?? '' ?>">
+                        <input type="text" class="form-control" id="exampleInputEmail" name="email"  placeholder="Email" value="<?= isset($_GET['email']) ? htmlspecialchars($_GET['email']) : '' ?>">
                         <?php if (isset($errors['email'])) : ?>
                           <small class="text-danger"><?= $errors['email'] ?></small>
                         <?php endif; ?>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword" name="password"  placeholder="Password">
+                        <input type="password" class="form-control" id="exampleInputPassword" name="password"  placeholder="Password" value="<?= isset($_GET['password']) ? htmlspecialchars($_GET['password']) : '' ?>">
                       </div>
                       <div class="form-group">
                         <label>File image</label>
@@ -52,8 +52,8 @@
                           </span>
                         </div>
                       </div>
-                     
-                      <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                      <input id="tea-submit" type="submit" name="submit" value="Tea">
+                                            <!-- <button type="submit" class="btn btn-gradient-primary me-2">Submit</button> -->
                       <button class="btn btn-light">Cancel</button>
                     </form>
                   </div>
