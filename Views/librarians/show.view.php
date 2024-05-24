@@ -11,16 +11,24 @@
 <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Librarian Info</h4>
-                    </p>
-                    <table class="table table-striped" style="width: 100%;table-layout: fixed;">
+                    <h4 class="card-title" style="display: inline-block;">Librarian Info</h4>
+                      <div class="g_massage" style="display: inline-block; float: right;">
+                      <?php if (strpos($_SERVER['REQUEST_URI'], 'delete') !== false) : ?>
+                      <p id="delete-message" class=" btn-inverse-danger pt-1 pb-1 px-2 fs-11 mb-0">The item is deleted</p>
+                      <?php displayDeleteMessageScript(); ?>
+                      <?php endif; ?>
+                      <?php if (strpos($_SERVER['REQUEST_URI'], 'edit') !== false) : ?>
+                          <p id="edit-message" class="btn-inverse-success pt-1 pb-1 px-2 fs-11 mb-0">The item is edited</p>
+                          <?php displayEditMessageScript(); ?>
+                      <?php endif; ?>
+                      </div>
+                      <table class="table table-striped" style="width: 100%;table-layout: fixed;">
                       <thead>
                         <tr>
                           <th> Librarian</th>
                           <th> Name </th>
                           <th> Phone </th>
                           <th> Email </th>
-                          <th> Password </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -28,14 +36,13 @@
 
                         <tr>
                           <td class="py-1" style="width:5%;">
-                            <img src="../../src/assets/images/faces-clipart/pic-1.png" alt="image" />
+                            <img src="../../uploads/<?= htmlspecialchars($admin['image_url']) ?>" alt="image" />
                           </td>
                           <td> <?= htmlspecialchars($admin['name']) ?></td>
                           <td>
                           <?= htmlspecialchars($admin['phone']) ?>
                           </td>
                           <td> <?= htmlspecialchars($admin['email']) ?></td>
-                          <td style="width:16%;word-wrap: break-word;overflow: hidden;"> <?= htmlspecialchars($admin['password'] )?> </td>
                           <td>
                             <form method="POST" style="display: inline;">
                             <input type="hidden" name= "_method" value="DELETE">

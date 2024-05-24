@@ -9,7 +9,7 @@
 
 
 require 'Function.php';
-
+require 'Database/Functions/Helpers.php';
 require 'Database/Database.php';
 
 
