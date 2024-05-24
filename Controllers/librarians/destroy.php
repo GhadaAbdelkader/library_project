@@ -1,22 +1,10 @@
 <?php
 
 
-// $sub_heading = "librarians";
-// $name = "librarians";
+deleteAllRecords('librarians');
 
-
-$config = require('Database/config.php');
-
-$db = new Database($config['database']);
-
-
-
-    $db->query('delete from librarians where id = :id', [
-        'id' => $_POST['id']
-
-    ]);
-    header('Location:/librarians/show');
-    exit();
+header('Location:/librarians/show?delete');
+exit();
 
 
 

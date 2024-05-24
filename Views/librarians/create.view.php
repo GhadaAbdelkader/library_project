@@ -11,8 +11,14 @@
 <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Create </h4>
-                    <form class="forms-sample" method="post">
+                    <h4 class="card-title" style="display: inline-block;">Create </h4>
+                      <div class="g_massage" style="display: inline-block; float: right;">
+                          <?php if (strpos($_SERVER['REQUEST_URI'], 'created') !== false) : ?>
+                              <p id="create-message" class=" btn-inverse-info pt-1 pb-1 px-2 fs-11 mb-0">The item is created</p>
+                              <?php displayCreateMessageScript(); ?>
+                          <?php endif; ?>
+                      </div>
+                    <form class="forms-sample mt-4" method="post" enctype="multipart/form-data">
                       <div class="form-group">
                         <label for="exampleInputName1">Name</label>
                         <input type="text" class="form-control" id="exampleInputName1" name="name"  placeholder="Name" value="<?= isset($_GET['name']) ? htmlspecialchars($_GET['name']) : '' ?>">
@@ -41,18 +47,20 @@
                       <div class="form-group">
                         <label for="exampleInputPassword">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword" name="password"  placeholder="Password" value="<?= isset($_GET['password']) ? htmlspecialchars($_GET['password']) : '' ?>">
+                          <?php if (isset($errors['password'])) : ?>
+                              <small class="text-danger"><?= $errors['password'] ?></small>
+                          <?php endif; ?>
                       </div>
                       <div class="form-group">
-                        <label>File image</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary py-3" type="button">Upload</button>
-                          </span>
+                        <label for="exampleInputImage">File image</label>
+                            <input id="exampleInputImage" class="form-control file-upload-browse btn  py-3" type="file" name="file" style="border: 1px solid #ebedf2;text-align: left;padding-left: 23px;">
+                          <?php if (isset($errors['file'])) : ?>
+                              <small class="text-danger"><?= $errors['file'] ?></small>
+                          <?php endif; ?>
                         </div>
-                      </div>
-                      <input id="tea-submit" type="submit" name="submit" value="Tea">
+
+
+                      <input class="btn btn-gradient-primary me-2" id="tea-submit" type="submit" name="submit" value="Submit">
                                             <!-- <button type="submit" class="btn btn-gradient-primary me-2">Submit</button> -->
                       <button class="btn btn-light">Cancel</button>
                     </form>

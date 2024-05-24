@@ -1,5 +1,11 @@
 <?php
-require "../Database.php";
+require_once "../Database.php";
+
+// Load the configuration
+$config = require '../config.php';
+
+// Create an instance of the Database class with the loaded configuration
+$database = new Database($config['database']);
 
 // Create books table
 $sql = "CREATE TABLE IF NOT EXISTS books (

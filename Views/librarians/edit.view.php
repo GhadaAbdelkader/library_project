@@ -14,7 +14,7 @@
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Edit</h4>
-                    <form class="forms-sample"  method="POST">
+                    <form class="forms-sample"  method="POST" enctype="multipart/form-data">
 
                     <?php foreach ($admins as $admin) :?>
 
@@ -40,19 +40,16 @@
                           <small class="text-danger"><?= $errors['email'] ?></small>
                         <?php endif; ?>
                       </div>
-                     
-                      <!-- <div class="form-group">
-                        <label>File image</label>
-                        <input type="file" name="img[]" class="file-upload-default">
-                        <div class="input-group col-xs-12">
-                          <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                          <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary py-3" type="button">Upload</button>
-                          </span>
+
+                        <div class="form-group">
+                            <label for="exampleInputImage">File image</label>
+                            <img src="../../uploads/<?= htmlspecialchars($admin['image_url']) ?>" alt="Current Image" style="max-width: 100px; max-height: 100px;display: block;margin: 10px 0;" />
+                            <input id="exampleInputImage" class="form-control file-upload-browse btn  py-3" type="file" name="file"  style="border: 1px solid #ebedf2;text-align: left;padding-left: 23px;">
+                            <?php if (isset($errors['file'])) : ?>
+                                <small class="text-danger"><?= $errors['file'] ?></small>
+                            <?php endif; ?>
                         </div>
-                      </div> -->
-                     
-                      <input id="tea-submit" type="submit" name="submit" value="coffee">
+                        <input class="btn btn-gradient-primary me-2" id="tea-submit" type="submit" name="submit" value="Edit">
                       <button class="btn btn-light">Cancel</button>
                       <?php endforeach; ?>
 
