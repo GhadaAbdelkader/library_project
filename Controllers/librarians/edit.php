@@ -4,8 +4,9 @@ require 'Validator.php';
 $sub_heading = "Edit";
 
 $name = "librarians";
+$id = $_GET['id'];
 
-$admins = editAllRecords('librarians');
+$admins = editAllRecords('librarians', $id);
 
 $errors = isset($_GET['errors']) ? $_GET['errors'] : [];
 

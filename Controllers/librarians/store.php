@@ -25,11 +25,17 @@ $errors = [];
 //    $errors['password'] = $passwordValidationResult;
 //}
 
-$image_url = Validator::uploadImage($errors);
+//$image_url = Validator::uploadImage($errors);
 
-
+$array = [
+    'name' => $_POST['name'],
+    'email' => $_POST['email'],
+    'phone' => $_POST['phone'],
+    'password' => $_POST['password'],
+    'image_url' => Validator::uploadImage($errors)
+];
 if (empty($errors)) {
-    insertAllRecords('librarians', $_POST['name'], $_POST['email'], $_POST['phone'], $_POST['password'], $image_url);
+    insertAllRecords('librarians', $array);
     header('Location:/librarians/create?created');
     exit();
 } else {
