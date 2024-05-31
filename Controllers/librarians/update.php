@@ -33,8 +33,15 @@ if (!$image_url && !isset($errors['file'])) {
     $image_url = $_POST['old_image_url']; // Use old image URL if upload failed or no file uploaded
 }
 
+$id = $_GET['id']; // Assume you have validated this ID properly
+$array = [
+    'name' => $_POST['name'],
+    'email' => $_POST['email'],
+    'phone' => $_POST['phone'],
+    'image_url' => $image_url // Assuming $image_url is set from file upload handling
+];
 if (empty($errors)) {
-    updateAllRecords('librarians', $_GET['id'], $_POST['name'], $_POST['email'], $_POST['phone'], $image_url);
+    updateAllRecords('librarians',  $id, $array);
     header('Location: /librarians/show?edit');
     exit();
 } else {
