@@ -15,11 +15,11 @@
                       <div class="g_massage" style="display: inline-block; float: right;">
                       <?php if (strpos($_SERVER['REQUEST_URI'], 'delete') !== false) : ?>
                       <p id="delete-message" class=" btn-inverse-danger pt-1 pb-1 px-2 fs-11 mb-0">The item is deleted</p>
-                      <?php displayDeleteMessageScript(); ?>
+                      <?php $message->deleteMessage() ?>
                       <?php endif; ?>
                       <?php if (strpos($_SERVER['REQUEST_URI'], 'edit') !== false) : ?>
                           <p id="edit-message" class="btn-inverse-success pt-1 pb-1 px-2 fs-11 mb-0">The item is edited</p>
-                          <?php displayEditMessageScript(); ?>
+                          <?php $message->editMessage() ?>
                       <?php endif; ?>
                       </div>
                       <table class="table table-striped" style="width: 100%;table-layout: fixed;">
@@ -32,26 +32,26 @@
                         </tr>
                       </thead>
                       <tbody>
-                      <?php foreach ($admins as $admin) :?>
+                      <?php foreach ($librarians as $librarian) :?>
 
                         <tr>
                           <td class="py-1" style="width:5%;">
-                            <img src="../../uploads/<?= htmlspecialchars($admin['image_url']) ?>" alt="image" />
+                            <img src="../../uploads/<?= htmlspecialchars($librarian['image_url']) ?>" alt="image" />
                           </td>
-                          <td> <?= htmlspecialchars($admin['name']) ?></td>
+                          <td> <?= htmlspecialchars($librarian['name']) ?></td>
                           <td>
-                          <?= htmlspecialchars($admin['phone']) ?>
+                          <?= htmlspecialchars($librarian['phone']) ?>
                           </td>
-                          <td> <?= htmlspecialchars($admin['email']) ?></td>
+                          <td> <?= htmlspecialchars($librarian['email']) ?></td>
                           <td>
                             <form method="POST" style="display: inline;">
                             <input type="hidden" name= "_method" value="DELETE">
-                            <input type="hidden" name= "id" value="<?= $admin['id'] ?>">
+                            <input type="hidden" name= "id" value="<?= $librarian['id'] ?>">
                                 <button type="submit" class="btn btn-inverse-danger btn-icon">
                                   <i class="mdi mdi-delete"></i>
                                 </button>
                             </form>
-                          <a href="/librarians/edit?id=<?=$admin['id']?>">
+                          <a href="/librarians/edit?id=<?=$librarian['id']?>">
                             <button type="button" class="btn btn-inverse-success  btn-icon">
                               <i class=" mdi mdi-pencil-box "></i>
                             </button>

@@ -15,7 +15,8 @@
                       <div class="g_massage" style="display: inline-block; float: right;">
                           <?php if (strpos($_SERVER['REQUEST_URI'], 'created') !== false) : ?>
                               <p id="create-message" class=" btn-inverse-info pt-1 pb-1 px-2 fs-11 mb-0">The item is created</p>
-                              <?php displayCreateMessageScript(); ?>
+                              <?php $message->createMessage();
+                              ?>
                           <?php endif; ?>
                       </div>
                     <form class="forms-sample mt-4" method="post" enctype="multipart/form-data">
