@@ -4,8 +4,10 @@ require 'Validator.php';
 
 
 
-
-$errors = [];
+$config         = require('Database/config.php');
+$database       = new Database($config['database']);
+$librarian      = new dataOperation($database);
+$errors         = $librarian-> errors = [];
 
 
 if (! Validator::validateId($_GET['id']) ){
@@ -33,7 +35,8 @@ if (!$image_url && !isset($errors['file'])) {
     $image_url = $_POST['old_image_url']; // Use old image URL if upload failed or no file uploaded
 }
 
-$id = $_GET['id']; // Assume you have validated this ID properly
+$id             = $librarian-> id = $_GET['id'];
+
 $array = [
     'name' => $_POST['name'],
     'email' => $_POST['email'],
@@ -41,7 +44,7 @@ $array = [
     'image_url' => $image_url // Assuming $image_url is set from file upload handling
 ];
 if (empty($errors)) {
-    updateAllRecords('librarians',  $id, $array);
+    $librarian->update('librarians',  $id, $array);
     header('Location: /librarians/show?edit');
     exit();
 } else {

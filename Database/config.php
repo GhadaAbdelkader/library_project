@@ -3,10 +3,9 @@
 
 return [
     'database'=>[
-
-    'host' => 'localhost',
-    'port' => 3306,
-    'dbname' => 'library2',
-    
+        'host' => 'localhost',
+        'port' => 3306,
+        'dbname' => 'library2',
     ]
 ];
+

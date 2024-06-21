@@ -1,15 +1,8 @@
 <?php
 
-// const BASE_PATH = __DIR__ . '/../';
-
-// require BASE_PATH . 'Function.php';
-
-// require base_path('Database/Database.php');
-// require base_path('router.php');
-
-
 require 'Function.php';
 require 'Database/Functions/Helpers.php';
+require 'Database/Functions/displayMessages.php';
 require 'Database/Database.php';
 
 
@@ -17,6 +10,10 @@ spl_autoload_register(function ($class) {
     $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
     require ("{$class}.php");
 });
+
+$config = require('Database/config.php');
+$database = new Database($config['database']);
+$dataOperation = new dataOperation($database);
 
 $router = new \Core\Router();
 

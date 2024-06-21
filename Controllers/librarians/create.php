@@ -2,25 +2,15 @@
 
 require 'Validator.php';
 
-$sub_heading = "Create";
-$name = "librarians";
 
+$config         = require('Database/config.php');
+$database       = new Database($config['database']);
+$librarian      = new dataOperation($database);
+$name           = $librarian->name = "librarians";
+$sub_heading    = $librarian->sub_heading = "Create";
+$errors         = $librarian-> errors =  isset($_GET['errors']) ? $_GET['errors'] : [];
 
-function displayCreateMessageScript() {
-    echo '<script>
-        window.onload = function() {
-            var message = document.getElementById("create-message");
-            if (message) {
-                setTimeout(function() {
-                    message.style.opacity = "0";
-                    setTimeout(function() {
-                        message.style.display = "none";
-                    }, 1000); // Match this duration with the CSS transition duration
-                }, 3000);
-            }
-        };
-    </script>';
-}
-$errors = isset($_GET['errors']) ? $_GET['errors'] : [];
+$message        = new displayMessages();
+
 require('Views/librarians/create.view.php');
 
